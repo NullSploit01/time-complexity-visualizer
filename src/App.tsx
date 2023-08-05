@@ -7,6 +7,7 @@ import SliderInput from './components/slider.component';
 import Heading from './components/heading.component';
 import { IOptions } from './types/options.type';
 import Options from './components/options.component';
+import Footer from './components/footer.component';
 
 const App = () => {
   const [_operationCount, setOperationCount] = useState<number>(50);
@@ -31,6 +32,7 @@ const App = () => {
         operationCount={_operationCount}
         handleInputChange={handleInputChange}
       />
+      <Footer />
     </Box>
   );
 };

@@ -9,6 +9,7 @@ export const headerBox: Record<IKey, SxProps> = {
     alignItems: 'center',
     width: 300,
     mt: 10,
+    mb: 3,
   },
   headingContainer: {
     height: 100,
