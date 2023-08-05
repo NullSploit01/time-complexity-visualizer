@@ -43,7 +43,7 @@ export const getTimeComplexities = (values: number[]) => {
     }
 
     const timeComplexity: ITimeComplexity = {
-      name: String(value),
+      operations: String(value),
       [TimeComplexityLabels.constant]: Math.pow(value, 0),
       [TimeComplexityLabels.logarithmic]: Math.round(Math.log2(value)),
       [TimeComplexityLabels.linear]: value,

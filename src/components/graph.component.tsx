@@ -9,9 +9,10 @@ import {
   Legend,
 } from 'recharts';
 import {
+  TimeComplexities,
   TimeComplexityGraphColor,
-  TimeComplexityLabels,
-} from 'src/types/time-complexity.type';
+} from 'src/constants/time-complexity.constant';
+import { TimeComplexityLabels } from 'src/types/time-complexity.type';
 import { getTimeComplexities, getXAxisValues } from 'src/utils/math.util';
 
 type IProps = {
@@ -20,60 +21,30 @@ type IProps = {
 
 const Graph: FC<IProps> = ({ operationCount }) => {
   const xAxisValues = getXAxisValues(operationCount);
-  const data = getTimeComplexities(xAxisValues);
+  const timeComplexities = getTimeComplexities(xAxisValues);
 
   return (
     <ResponsiveContainer width='70%' height='50%'>
-      <LineChart width={500} height={300} data={data}>
-        <XAxis dataKey='name' />
+      <LineChart width={500} height={300} data={timeComplexities}>
+        <XAxis dataKey={TimeComplexityLabels.operations} />
         <YAxis
           scale='sqrt'
           ticks={[0, 10, 100, 1000, 2500, 5000, 10000, 15000]}
           domain={[0, 15000]}
           allowDataOverflow
         />
+        {TimeComplexities.map((timeComplexity) => {
+          return (
+            <Line
+              key={timeComplexity}
+              type='monotone'
+              dataKey={TimeComplexityLabels[timeComplexity]}
+              stroke={TimeComplexityGraphColor[timeComplexity]}
+            />
+          );
+        })}
         <Tooltip />
         <Legend />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.constant}
-          stroke={TimeComplexityGraphColor.constant}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.logarithmic}
-          stroke={TimeComplexityGraphColor.logarithmic}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.linear}
-          stroke={TimeComplexityGraphColor.linear}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.linear_log}
-          stroke={TimeComplexityGraphColor.linear_log}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.quadratic}
-          stroke={TimeComplexityGraphColor.quadratic}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.cubic}
-          stroke={TimeComplexityGraphColor.cubic}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.exponential}
-          stroke={TimeComplexityGraphColor.exponential}
-        />
-        <Line
-          type='monotone'
-          dataKey={TimeComplexityLabels.factorial}
-          stroke={TimeComplexityGraphColor.factorial}
-        />
       </LineChart>
     </ResponsiveContainer>
   );

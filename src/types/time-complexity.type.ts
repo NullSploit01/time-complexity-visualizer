@@ -1,4 +1,5 @@
 export enum TimeComplexityLabels {
+  operations = 'operations',
   constant = 'O(1)',
   logarithmic = 'O(logN)',
   linear = 'O(N)',
@@ -10,7 +11,7 @@ export enum TimeComplexityLabels {
 }
 
 export type ITimeComplexity = {
-  name: string;
+  operations: string;
   [TimeComplexityLabels.constant]: number;
   [TimeComplexityLabels.logarithmic]: number;
   [TimeComplexityLabels.linear]: number;
@@ -21,24 +22,12 @@ export type ITimeComplexity = {
   [TimeComplexityLabels.factorial]: number;
 };
 
-export enum TimeComplexityGraphColor {
-  constant = 'red',
-  logarithmic = 'green',
-  linear = 'blue',
-  linear_log = 'brown',
-  quadratic = 'black',
-  cubic = 'cyan',
-  exponential = 'violet',
-  factorial = 'indigo',
-}
-
-export enum TimeComplexities {
-  constant,
-  logarithmic,
-  linear,
-  linear_log,
-  quadratic,
-  cubic,
-  exponential,
-  factorial,
-}
+export type ITimeComplexities =
+  | 'constant'
+  | 'logarithmic'
+  | 'linear'
+  | 'linear_log'
+  | 'quadratic'
+  | 'cubic'
+  | 'exponential'
+  | 'factorial';
