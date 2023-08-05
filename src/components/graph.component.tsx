@@ -15,19 +15,21 @@ import {
   TimeComplexities,
   TimeComplexityGraphColor,
 } from 'src/constants/time-complexity.constant';
+import { IOptions } from 'src/types/options.type';
 import { TimeComplexityLabels } from 'src/types/time-complexity.type';
 import { getTimeComplexities, getXAxisValues } from 'src/utils/math.util';
 
 type IProps = {
   operationCount: number;
+  showOptions: IOptions;
 };
 
-const Graph: FC<IProps> = ({ operationCount }) => {
+const Graph: FC<IProps> = ({ operationCount, showOptions }) => {
   const xAxisValues = getXAxisValues(operationCount);
   const timeComplexities = getTimeComplexities(xAxisValues);
 
   return (
-    <ResponsiveContainer width='50%' height='50%'>
+    <ResponsiveContainer width={800} height={400}>
       <LineChart width={500} height={300} data={timeComplexities}>
         <XAxis dataKey={TimeComplexityLabels.operations}>
           <Label value='Elements' offset={7} position='insideBottomLeft' />
@@ -55,8 +57,14 @@ const Graph: FC<IProps> = ({ operationCount }) => {
             />
           );
         })}
-        <Tooltip />
-        <Legend />
+        {showOptions.legend && (
+          <Legend
+            wrapperStyle={{
+              paddingTop: '10px',
+            }}
+          />
+        )}
+        {showOptions.tooltip && <Tooltip />}
       </LineChart>
     </ResponsiveContainer>
   );
