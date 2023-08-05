@@ -1,6 +1,6 @@
 import { SxProps } from '@mui/system';
 
-type IKey = 'container';
+type IKey = 'container' | 'headingContainer';
 
 export const headerBox: Record<IKey, SxProps> = {
   container: {
@@ -9,5 +9,12 @@ export const headerBox: Record<IKey, SxProps> = {
     alignItems: 'center',
     width: 300,
     mt: 10,
+  },
+  headingContainer: {
+    height: 100,
+    pb: 7,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 };
