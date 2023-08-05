@@ -17,7 +17,7 @@ const App = () => {
       <Box width={300} mt={10}>
         <Slider
           min={10}
-          max={1000}
+          max={15000}
           onChange={handleChange}
           value={_operationCount}
           valueLabelDisplay='auto'
