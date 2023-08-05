@@ -10,6 +10,8 @@ import {
   Label,
 } from 'recharts';
 import {
+  MaxOperations,
+  MinOperations,
   TimeComplexities,
   TimeComplexityGraphColor,
 } from 'src/constants/time-complexity.constant';
@@ -25,7 +27,7 @@ const Graph: FC<IProps> = ({ operationCount }) => {
   const timeComplexities = getTimeComplexities(xAxisValues);
 
   return (
-    <ResponsiveContainer width='70%' height='50%'>
+    <ResponsiveContainer width='50%' height='50%'>
       <LineChart width={500} height={300} data={timeComplexities}>
         <XAxis dataKey={TimeComplexityLabels.operations}>
           <Label value='Elements' offset={7} position='insideBottomLeft' />
@@ -33,7 +35,7 @@ const Graph: FC<IProps> = ({ operationCount }) => {
         <YAxis
           scale='sqrt'
           ticks={[0, 10, 100, 1000, 1875, 3750, 5000, 7500, 10000, 15000]}
-          domain={[0, 15000]}
+          domain={[MinOperations, MaxOperations]}
           allowDataOverflow
         >
           <Label

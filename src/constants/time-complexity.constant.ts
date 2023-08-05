@@ -21,3 +21,6 @@ export const TimeComplexities: ITimeComplexities[] = [
   'exponential',
   'factorial',
 ];
+
+export const MinOperations = 10;
+export const MaxOperations = 15000;
