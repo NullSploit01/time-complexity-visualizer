@@ -12,8 +12,7 @@ export const headerBox: Record<IKey, SxProps> = {
     mb: 3,
   },
   headingContainer: {
-    height: 100,
-    pb: 7,
+    py: 5,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

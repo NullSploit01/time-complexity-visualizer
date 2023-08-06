@@ -16,8 +16,8 @@ const Options: FC<IProps> = ({ setShowOptions, showOptions }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', mx: 5 }}>
-      <FormControl>
+    <FormControl>
+      <Box sx={{ display: 'flex', flexDirection: 'row', mx: 5 }}>
         {OPTIONS.map((option, index) => {
           return (
             <FormControlLabel
@@ -33,8 +33,8 @@ const Options: FC<IProps> = ({ setShowOptions, showOptions }) => {
             />
           );
         })}
-      </FormControl>
-    </Box>
+      </Box>
+    </FormControl>
   );
 };
 

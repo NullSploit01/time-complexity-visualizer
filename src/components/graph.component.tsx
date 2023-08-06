@@ -29,10 +29,10 @@ const Graph: FC<IProps> = ({ operationCount, showOptions }) => {
   const timeComplexities = getTimeComplexities(xAxisValues);
 
   return (
-    <ResponsiveContainer width={800} height={400}>
+    <ResponsiveContainer height={'100%'} width={'90%'}>
       <LineChart width={500} height={300} data={timeComplexities}>
         <XAxis dataKey={TimeComplexityLabels.operations}>
-          <Label value='Elements' offset={7} position='insideBottomLeft' />
+          <Label value='Elements' offset={-7} position='insideBottomLeft' />
         </XAxis>
         <YAxis
           scale='sqrt'
@@ -60,7 +60,7 @@ const Graph: FC<IProps> = ({ operationCount, showOptions }) => {
         {showOptions.legend && (
           <Legend
             wrapperStyle={{
-              paddingTop: '10px',
+              paddingTop: '20px',
             }}
           />
         )}

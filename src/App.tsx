@@ -23,11 +23,11 @@ const App = () => {
   return (
     <Box sx={centerBox.container}>
       <Heading />
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', height: '100%', width: '70%' }}>
         <Graph showOptions={_showOptions} operationCount={_operationCount} />
-        <Options showOptions={_showOptions} setShowOptions={setShowOptions} />
       </Box>
 
+      <Options showOptions={_showOptions} setShowOptions={setShowOptions} />
       <SliderInput
         operationCount={_operationCount}
         handleInputChange={handleInputChange}
