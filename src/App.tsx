@@ -13,7 +13,7 @@ const App = () => {
   const [_operationCount, setOperationCount] = useState<number>(50);
   const [_showOptions, setShowOptions] = useState<IOptions>({
     tooltip: false,
-    legend: false,
+    legend: true,
   });
 
   const handleInputChange = (_: Event, value: number | number[]) => {
@@ -25,7 +25,7 @@ const App = () => {
       <Heading />
       <Box sx={{ display: 'flex' }}>
         <Graph showOptions={_showOptions} operationCount={_operationCount} />
-        <Options setShowOptions={setShowOptions} />
+        <Options showOptions={_showOptions} setShowOptions={setShowOptions} />
       </Box>
 
       <SliderInput
